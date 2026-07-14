@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Laboral y Dictamen de Derechos Violados (LFT)</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .header-banner {
+            background-color: #1e293b;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header-banner h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+        .header-banner p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        h2 {
+            color: #0f172a;
+            font-size: 18px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #1e293b;
+            font-size: 15px;
+            margin-top: 20px;
+        }
+        p, li {
+            font-size: 14px;
+        }
+        .violation-card {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .violation-title {
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 5px;
+        }
+        .legal-basis {
+            font-style: italic;
+            color: #475569;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .penalty-box {
+            background-color: #fef2f2;
+            border-left: 3px solid #ef4444;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #991b1b;
+        }
+        .grid-container {
+            display: block;
+            margin-top: 20px;
+        }
+        .form-section, .results-section {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+            padding-right: 10px;
+        }
+        .form-group.full-width {
+            width: 100%;
+            padding-right: 0;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #475569;
+        }
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #334155;
+            background-color: #fff;
+        }
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .checkbox-group {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        .table-results {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+        .table-results th, .table-results td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        .table-results th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        .table-results tr.total-row {
+            font-weight: bold;
+            background-color: #f8fafc;
+            font-size: 15px;
+            color: #0f172a;
+            border-top: 2px solid #cbd5e1;
+        }
+        .badge-alert {
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-banner">
+        <h1>DICTAMEN JURÍDICO Y CALCULADORA DE LIQUIDACIÓN LABORAL</h1>
+        <p>Análisis de caso bajo la Ley Federal del Trabajo de México (Texto Vigente / Reformas Proporcionadas)</p>
+    </div>
+
+    <h2>1. Listado de Leyes y Artículos Violados por la Empresa</h2>
+    <p>Con base en la situación CSC Integral Services vs Aldo Cano, se identifican las siguientes violaciones:</p>
+
+    <div class="violation-card">
+        <div class="violation-title">1. Desempeño Simultáneo de Funciones sin Compensación Salarial</div>
+        <div class="legal-basis">Fundamento: Artículo 56 Bis, Artículo 20, Artículo 82, Artículo 84 y Artículo 86</div>
+        <p><strong>Descripción:</strong> Se le asignó el cargo adicional de Analista/Desarrollador de Software de forma simultánea a su puesto de Agente Telefónico de Cobranza durante los últimos 2 meses, sin formalizar términos ni pagar compensación alguna, continuando la empresa en uso del software desarrollado.</p>
+        <p><strong>Efecto Jurídico:</strong> El Art. 56 Bis establece explícitamente que si un trabajador realiza tareas conexas o complementarias a su labor principal, tiene derecho a recibir la compensación salarial correspondiente. El salario se integra por toda cantidad entregada por su trabajo (Art. 84) y a trabajo igual corresponde salario igual (Art. 86).</p>
+        <div class="penalty-box">
+            <strong>Pena o Multa:</strong> Obligación de pago retroactivo de los salarios devengados por el segundo cargo. Conforme al esquema sancionador general de la LFT (Título 16), el incumplimiento de las normas salariales genera multas administrativas de 50 a 5000 veces la Unidad de Medida y Actualización (UMA).
+        </div>
+    </div>
+
+    <div class="violation-card">
+        <div class="violation-title">2. Despido Injustificado y Coerción bajo Causa Inhumana (Uso de Sanitario)</div>
+        <div class="legal-basis">Fundamento: Artículo 2, Artículo 3, Artículo 47, Artículo 51 (Fracciones II, IV, V, IX) y Artículo 132 (Fracción VI)</div>
+        <p><strong>Descripción:</strong> Se pretende rescindir al trabajador argumentando retardos promedio de 5 minutos derivados de necesidades biológicas (uso del sanitario). Esto atenta contra la dignidad humana, además de que el personal administrativo se negó a reunirse para pactar los horarios del doble puesto.</p>
+        <p><strong>Efecto Jurídico:</strong> El uso del sanitario es un derecho humano y parte de las condiciones óptimas de seguridad e higiene que exige el trabajo digno (Art. 2 y 3). Al no existir una causa justificada del Art. 47 y omitir el patrón la entrega del aviso escrito de rescisión, el despido es <strong>NULO</strong> por sí solo, determinándose como separación no justificada (Art. 47, último párrafo). Asimismo, faculta al trabajador a rescindir la relación sin su responsabilidad (Art. 51 y 52) con derecho a todas las indemnizaciones.</p>
+        <div class="penalty-box">
+            <strong>Pena o Multa:</strong> Pago de Indemnización Constitucional (3 meses de salario), salarios vencidos desde la fecha del despido hasta por 12 meses, e intereses del 2% mensual capitalizable (Art. 48). El desacato a las reglas de rescisión genera multas administrativas independientes.
+        </div>
+    </div>
+
+    <div class="violation-card">
+        <div class="violation-title">3. Retención Ilícita de Salarios, Comisiones, Bonos y Prestaciones</div>
+        <div class="legal-basis">Fundamento: Artículo 5 (Fracción X, XIII), Artículo 33, Artículo 98, Artículo 99, Artículo 106 y Artículo 110</div>
+        <p><strong>Descripción:</strong> La empresa está reteniendo el salario del último periodo, comisiones, bonos, prestaciones devengadas y vales de despensa como medida de presión.</p>
+        <p><strong>Efecto Jurídico:</strong> El derecho a percibir el salario y las prestaciones devengadas es <strong>IRRENUNCIABLE</strong> (Art. 99). El Art. 5 (Fracción X y XIII) y el Art. 33 declaran nula cualquier estipulación o acto que implique la retención del salario o renuncia de derechos. Los descuentos están estrictamente prohibidos (Art. 110) y la obligación de pago no se suspende (Art. 106).</p>
+        <div class="penalty-box">
+            <strong>Pena o Multa:</strong> Restitución inmediata de los montos retenidos con preferencia sobre cualquier otra deuda de la empresa (Art. 113). Multas administrativas severas por retención de salario de 50 a 5000 UMA por infracción.
+        </div>
+    </div>
+
+    <div class="violation-card">
+        <div class="violation-title">4. Coerción e Intimidación para Firmar Renuncia Voluntaria</div>
+        <div class="legal-basis">Fundamento: Artículo 33 y Artículo 133 (Fracción VII)</div>
+        <p><strong>Descripción:</strong> El personal de Recursos Humanos intimida y condiciona el pago del fruto del trabajo a cambio de la firma de una renuncia voluntaria, negándose además a entregar documentos de las reuniones.</p>
+        <p><strong>Efecto Jurídico:</strong> Cualquier convenio o liquidación para ser válido debe ser por escrito, libre de vicios de consentimiento, y no contener renuncia de derechos (Art. 33). El Art. 133 Frac. VII prohíbe tajantemente a los patrones ejecutar actos que restrinjan los derechos que las leyes otorgan a los trabajadores.</p>
+        <div class="penalty-box">
+            <strong>Pena o Multa:</strong> Nulidad absoluta del documento en caso de ser firmado bajo coerción. Sanción administrativa al patrón por prácticas coercitivas en perjuicio de los derechos del trabajador.
+        </div>
+    </div>
+
+    <div class="violation-card">
+        <div class="violation-title">5. Negativa a Entregar Constancias Laborales y Bloqueo de Comunicación</div>
+        <div class="legal-basis">Fundamento: Artículo 31, Artículo 132 (Fracciones VII y VIII)</div>
+        <p><strong>Descripción:</strong> RH y el supervisor bloquearon al trabajador de los canales de comunicación (WhatsApp) y se negaron a proporcionarle copias o documentos que certifiquen los hechos acontecidos.</p>
+        <p><strong>Efecto Jurídico:</strong> Es obligación patronal expedir cada 15 días una constancia de días trabajados y salario, así como una constancia escrita relativa a sus servicios dentro de los 3 días posteriores a que el trabajador lo solicite o se separe de la empresa (Art. 132, VII y VIII). El bloqueo rompe el principio de buena fe y equidad que obliga toda relación laboral (Art. 31).</p>
+        <div class="penalty-box">
+            <strong>Pena o Multa:</strong> Sanción administrativa específica por la no expedición de las constancias de servicios obligatorias.
+        </div>
+    </div>
+
+    <h2>2. Calculadora Interactiva de Liquidación (Despido Injustificado / Rescisión Art. 51)</h2>
+    <p>Introduzca los datos correspondientes a su situación laboral para calcular los montos que legalmente le corresponden por concepto de Finiquito (conceptos devengados no pagados) e Indemnizaciones de ley.</p>
+
+    <div class="grid-container">
+        <div class="form-section">
+            <h3>Datos Generales y Salarios</h3>
+            
+            <div class="form-group">
+                <label for="fecha_ingreso">Fecha de Ingreso:</label>
+                <input type="date" id="fecha_ingreso" value="2026-02-17">
+            </div>
+            
+            <div class="form-group">
+                <label for="fecha_baja">Fecha de Despido / Rescisión:</label>
+                <input type="date" id="fecha_baja" value="2026-05-11">
+            </div>
+
+            <div class="form-group">
+                <label for="salario_principal">Salario Mensual Base (Collector/CSR Agent) ($):</label>
+                <input type="number" id="salario_principal" value="11598" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="salario_dev">Salario Mensual Acordado o Reclamado (Desarrollador) ($):</label>
+                <input type="number" id="salario_dev" value="0" min="0">
+            </div>
+
+            <h3>Conceptos Retenidos y Devengados (Último Periodo)</h3>
+
+            <div class="form-group">
+                <label for="dias_retenidos">Días de salario retenidos (último periodo) (sin salarios caídos):</label>
+                <input type="number" id="dias_retenidos" value="15" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="meses_dev">Meses laborados como Desarrollador sin pago:</label>
+                <input type="number" id="meses_dev" value="2" min="0" max="99">
+            </div>
+
+            <div class="form-group">
+                <label for="comisiones">Comisiones pendientes retenidas ($):</label>
+                <input type="number" id="comisiones" value="0" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="bonos_despensa">Bonos y Vales de Despensa retenidos ($):</label>
+                <input type="number" id="bonos_despensa" value="2000" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="salario_minimo">Salario Mínimo General Vigente (Para tope de prima) ($):</label>
+                <input type="number" id="salario_minimo" value="315.04" min="0">
+            </div>
+
+            <h3>Opciones de Indemnización de Ley</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="inc_indemnizacion" checked> Incluir Indemnización Constitucional (3 meses / 90 días de salario integrado)</label>
+            </div>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="inc_20dias" checked> Incluir 20 días de salario por cada año de servicio (Art. 50 Frac. II / Art. 52)</label>
+            </div>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="inc_prima_ant" checked> Incluir Prima de Antigüedad (12 días por año - Art. 162 / Aplica en despido)</label>
+            </div>
+
+            <button type="button" onclick="calcularTodo()">Calcular Conceptos Reclamables</button>
+        </div>
+
+        <div class="results-section">
+            <h3>Resultados del Cálculo de Liquidación</h3>
+            <p><strong>Antigüedad calculada:</strong> <span id="res_antiguedad">0</span> años (<span id="res_dias_totales">0</span> días totales)</p>
+            <p><strong>Salario Diario Integrado (SDI) Estimado:</strong> $<span id="res_sdi">0.00</span></p>
+
+            <table class="table-results">
+                <thead>
+                    <tr>
+                        <th>Concepto Laboral</th>
+                        <th>Cálculo / Base</th>
+                        <th>Total a Reclamar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Salario Retenido (Periodo Ordinario)</strong></td>
+                        <td id="base_salario_ret">0 días</td>
+                        <td id="val_salario_ret">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Salarios Retenidos (Función Desarrollador)</strong></td>
+                        <td id="base_salario_dev">0 meses</td>
+                        <td id="val_salario_dev">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comisiones Retenidas</strong></td>
+                        <td>Monto directo reportado</td>
+                        <td id="val_comisiones">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bonos y Despensa Retenidos</strong></td>
+                        <td>Monto directo reportado</td>
+                        <td id="val_bonos">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aguinaldo Proporcional</strong></td>
+                        <td id="base_aguinaldo">0 días prop. (año en curso)</td>
+                        <td id="val_aguinaldo">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vacaciones Proporcionales</strong></td>
+                        <td id="base_vacaciones">0 días prop. según Art. 76 (2015)</td>
+                        <td id="val_vacaciones">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prima Vacacional Proporcional</strong></td>
+                        <td>25% sobre vacaciones correspondientes</td>
+                        <td id="val_prima_vac">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#2563eb; font-weight:600;">SUBTOTAL FINIQUITO DE DEVENGADOS</td>
+                        <td>Suma de prestaciones retenidas y proporcionales</td>
+                        <td id="val_sub_finiquito" style="font-weight:bold; color:#2563eb;">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Indemnización Constitucional</strong></td>
+                        <td>90 días de Salario Diario Integrado (SDI)</td>
+                        <td id="val_indem_const">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20 Días por Año de Servicio</strong></td>
+                        <td id="base_20dias">20 días por año de antigüedad</td>
+                        <td id="val_20dias">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prima de Antigüedad</strong></td>
+                        <td id="base_prima_ant">12 días por año (Topado a 2 SMG)</td>
+                        <td id="val_prima_ant">$0.00</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>GRAN TOTAL LEGAL RECLAMABLE</td>
+                        <td>Finiquito + Indemnizaciones Totales</td>
+                        <td id="val_total_liquidacion">$0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="badge-alert">
+                Aviso: Este dictamen está diseñado bajo LFT vigente a fecha Julio 2026. Sujeto a revisión por representante legal autorizado.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calcularAntiguedadExacta(fechaIngreso, fechaBaja) {
+        const inicio = new Date(fechaIngreso);
+        const fin = new Date(fechaBaja);
+        if (isNaN(inicio) || isNaN(fin) || fin < inicio) return { anos: 0, diasTotales: 0, diasAnoEnCurso: 0 };
+        
+        const diffTime = Math.abs(fin - inicio);
+        const diasTotales = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // Incluye el día de baja
+        const anos = diasTotales / 365.25;
+
+        // Calcular días transcurridos en el año civil en curso de la baja para el aguinaldo
+        const inicioAnoBaja = new Date(fin.getFullYear(), 0, 1);
+        let diasAnoEnCurso = Math.ceil((fin - inicioAnoBaja) / (1000 * 60 * 60 * 24)) + 1;
+        
+        // Si ingresó este mismo año, los días cuentan desde el ingreso
+        if (inicio.getFullYear() === fin.getFullYear()) {
+            diasAnoEnCurso = diasTotales;
+        }
+
+        // Calcular días transcurridos desde el último aniversario para las vacaciones proporcionales
+        let ultimoAniversario = new Date(fin.getFullYear(), inicio.getMonth(), inicio.getDate());
+        if (ultimoAniversario > fin) {
+            ultimoAniversario = new Date(fin.getFullYear() - 1, inicio.getMonth(), inicio.getDate());
+        }
+        const diasDesdeAniversario = Math.ceil((fin - ultimoAniversario) / (1000 * 60 * 60 * 24)) + 1;
+
+        return { anos, diasTotales, diasAnoEnCurso, diasDesdeAniversario };
+    }
+
+    function obtenerDiasVacacionesSegunTexto2015(anosAntiguedad) {
+        // Basado estrictamente en el Art. 76 proporcionado (Reforma 2015: Año 1=6, Año 2=8, Año 3=10, Año 4=12, 5-9=14)
+        const anosInt = Math.floor(anosAntiguedad);
+        if (anosInt < 1) return 6; // Para el cálculo proporcional del primer año
+        if (anosInt === 1) return 6;
+        if (anosInt === 2) return 8;
+        if (anosInt === 3) return 10;
+        if (anosInt === 4) return 12;
+        if (anosInt >= 5 && anosInt <= 9) return 14;
+        if (anosInt >= 10 && anosInt <= 14) return 16;
+        return 18;
+    }
+
+    function calcularTodo() {
+        // Obtener valores de los inputs
+        const fechaIngreso = document.getElementById('fecha_ingreso').value;
+        const fechaBaja = document.getElementById('fecha_baja').value;
+        const salarioPrincipal = parseFloat(document.getElementById('salario_principal').value) || 0;
+        const salarioDev = parseFloat(document.getElementById('salario_dev').value) || 0;
+        const diasRetenidos = parseFloat(document.getElementById('dias_retenidos').value) || 0;
+        const mesesDev = parseFloat(document.getElementById('meses_dev').value) || 0;
+        const comisiones = parseFloat(document.getElementById('comisiones').value) || 0;
+        const bonosDespensa = parseFloat(document.getElementById('bonos_despensa').value) || 0;
+        const smg = parseFloat(document.getElementById('salario_minimo').value) || 248.93;
+
+        // Banderas de indemnización
+        const incIndem = document.getElementById('inc_indemnizacion').checked;
+        const inc20dias = document.getElementById('inc_20dias').checked;
+        const incPrimaAnt = document.getElementById('inc_prima_ant').checked;
+
+        // Cálculos de tiempo
+        const tiempo = calcularAntiguedadExacta(fechaIngreso, fechaBaja);
+        document.getElementById('res_antiguedad').innerText = tiempo.anos.toFixed(2);
+        document.getElementById('res_dias_totales').innerText = tiempo.diasTotales;
+
+        // Salarios diarios ordinarios
+        const sdoPrincipal = salarioPrincipal / 30;
+        
+        // Integración del salario estimado (Aguinaldo + Vacaciones + Prima Vacacional básicos)
+        // Art. 84: El salario se integra con cuota diaria, gratificaciones, primas, comisiones...
+        const diasVacAnoActual = obtenerDiasVacacionesSegunTexto2015(tiempo.anos);
+        const factorAguinaldo = 15 / 365;
+        const factorPrimaVac = (diasVacAnoActual * 0.25) / 365;
+        const sdi = sdoPrincipal + (sdoPrincipal * factorAguinaldo) + (sdoPrincipal * factorPrimaVac);
+        document.getElementById('res_sdi').innerText = sdi.toFixed(2);
+
+        // 1. Salario Retenido Periodo Ordinario
+        const totalSalarioRet = diasRetenidos * sdoPrincipal;
+        document.getElementById('base_salario_ret').innerText = diasRetenidos + ' días x $' + sdoPrincipal.toFixed(2) + '/día';
+        document.getElementById('val_salario_ret').innerText = '$' + totalSalarioRet.toFixed(2);
+
+        // 2. Salarios Retenidos Función Desarrollador (Art. 56 Bis)
+        const totalSalarioDev = mesesDev * salarioDev;
+        document.getElementById('base_salario_dev').innerText = mesesDev + ' meses x $' + salarioDev.toFixed(2) + '/mes';
+        document.getElementById('val_salario_dev').innerText = '$' + totalSalarioDev.toFixed(2);
+
+        // 3. Comisiones y Bonos directos
+        document.getElementById('val_comisiones').innerText = '$' + comisiones.toFixed(2);
+        document.getElementById('val_bonos').innerText = '$' + bonosDespensa.toFixed(2);
+
+        // 4. Aguinaldo Proporcional (Art. 87: mínimo 15 días por año completo o parte proporcional)
+        const totalAguinaldo = (tiempo.diasAnoEnCurso / 365) * 15 * sdoPrincipal;
+        document.getElementById('base_aguinaldo').innerText = tiempo.diasAnoEnCurso + ' días lab. en el año';
+        document.getElementById('val_aguinaldo').innerText = '$' + totalAguinaldo.toFixed(2);
+
+        // 5. Vacaciones Proporcionales (Art. 76 y 79: proporcional al tiempo de servicios prestados)
+        const diasVacacionesDerecho = obtenerDiasVacacionesSegunTexto2015(tiempo.anos);
+        const totalVacaciones = (tiempo.diasDesdeAniversario / 365) * diasVacacionesDerecho * sdoPrincipal;
+        document.getElementById('base_vacaciones').innerText = tiempo.diasDesdeAniversario + ' días transc. del ciclo (Base: ' + diasVacacionesDerecho + 'd)';
+        document.getElementById('val_vacaciones').innerText = '$' + totalVacaciones.toFixed(2);
+
+        // 6. Prima Vacacional (Art. 80: mínimo 25% sobre los salarios de vacaciones)
+        const totalPrimaVac = totalVacaciones * 0.25;
+        document.getElementById('val_prima_vac').innerText = '$' + totalPrimaVac.toFixed(2);
+
+        // Subtotal Finiquito
+        const subtotalFiniquito = totalSalarioRet + totalSalarioDev + comisiones + bonosDespensa + totalAguinaldo + totalVacaciones + totalPrimaVac;
+        document.getElementById('val_sub_finiquito').innerText = '$' + subtotalFiniquito.toFixed(2);
+
+        // INDEMNIZACIONES
+        // 7. Indemnización Constitucional (Art. 48/50: 3 meses = 90 días de SDI)
+        const totalIndemConst = incIndem ? (90 * sdi) : 0;
+        document.getElementById('val_indem_const').innerText = '$' + totalIndemConst.toFixed(2);
+
+        // 8. 20 Días por Año de Servicio (Art. 50 Frac. II: 20 días por cada uno de los años de servicio prestados)
+        const total20dias = inc20dias ? (tiempo.anos * 20 * sdi) : 0;
+        document.getElementById('base_20dias').innerText = tiempo.anos.toFixed(2) + ' años de antigüedad';
+        document.getElementById('val_20dias').innerText = '$' + total20dias.toFixed(2);
+
+        // 9. Prima de Antigüedad (Art. 162 / Mencionada en Art. 54: 12 días por año, topado a 2 Salarios Mínimos Generales)
+        const topePrimaAntiguedad = 2 * smg;
+        const salarioBasePrima = sdi > topePrimaAntiguedad ? topePrimaAntiguedad : sdi;
+        const totalPrimaAnt = incPrimaAnt ? (tiempo.anos * 12 * salarioBasePrima) : 0;
+        document.getElementById('base_prima_ant').innerText = tiempo.anos.toFixed(2) + ' años (Base: $' + salarioBasePrima.toFixed(2) + '/día)';
+        document.getElementById('val_prima_ant').innerText = '$' + totalPrimaAnt.toFixed(2);
+
+        // Gran Total
+        const granTotal = subtotalFiniquito + totalIndemConst + total20dias + totalPrimaAnt;
+        document.getElementById('val_total_liquidacion').innerText = '$' + granTotal.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // Ejecutar cálculo automático al cargar por primera vez
+    window.onload = calcularTodo;
+</script>
+
+</body>
+</html>
