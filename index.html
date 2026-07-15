@@ -290,9 +290,9 @@
         </div>
 
         <div class="violation-card">
-            <div class="violation-title">3. Retención Ilícita de Salarios, Comisiones, Bonos y Prestaciones</div>
+            <div class="violation-title">3. Retención Ilícita de Salarios, utilidades, Bonos y Prestaciones</div>
             <div class="legal-basis">Fundamento: Artículo 5 (Fracción X, XIII), Artículo 33, Artículo 98, Artículo 99, Artículo 106 y Artículo 110</div>
-            <p><strong>Descripción:</strong> La empresa está reteniendo el salario del último periodo, comisiones, bonos, prestaciones devengadas y vales de despensa como medida de presión.</p>
+            <p><strong>Descripción:</strong> La empresa está reteniendo el salario del último periodo, utilidades, bonos, prestaciones devengadas y vales de despensa como medida de presión.</p>
             <p><strong>Efecto Jurídico:</strong> El derecho a percibir el salario y las prestaciones devengadas es <strong>IRRENUNCIABLE</strong> (Art. 99). El Art. 5 (Fracción X y XIII) y el Art. 33 declaran nula cualquier estipulación o acto que implique la retención del salario o renuncia de derechos. Los descuentos están estrictamente prohibidos (Art. 110) y la obligación de pago no se suspende (Art. 106).</p>
             <div class="penalty-box">
                 <strong>Pena o Multa:</strong> Restitución inmediata de los montos retenidos con preferencia sobre cualquier otra deuda de la empresa (Art. 113). Multas administrativas severas por retención de salario de 50 a 5000 UMA por infracción.
@@ -359,8 +359,8 @@
             </div>
 
             <div class="form-group">
-                <label for="comisiones">Comisiones pendientes retenidas ($):</label>
-                <input type="number" id="comisiones" value="0" min="0">
+                <label for="utilidades">utilidades pendientes retenidas ($):</label>
+                <input type="number" id="utilidades" value="0" min="0">
             </div>
 
             <div class="form-group">
@@ -422,9 +422,9 @@
                         <td id="val_salario_dev">$0.00</td>
                     </tr>
                     <tr>
-                        <td><strong>Comisiones Retenidas</strong></td>
+                        <td><strong>utilidades Retenidas</strong></td>
                         <td>Monto directo reportado</td>
-                        <td id="val_comisiones">$0.00</td>
+                        <td id="val_utilidades">$0.00</td>
                     </tr>
                     <tr>
                         <td><strong>Bonos y Despensa Retenidos</strong></td>
@@ -489,7 +489,7 @@
                 </tbody>
             </table>
             <div class="badge-alert">
-                Aviso: Agregar pago de Utilidades y calcular retenciones ISR sobre Gran Total Reclamable, restando acordemente el periodo/monto libre de gravamen (3 meses / 90 días de salario mínimo), y si el juicio laboral se extiende más allá de los 12 meses, se generan intereses del 2% mensual (capitalizables) sobre el importe de 15 meses de salario (Art. 48). Sujeto a revisión contable y legal.
+                Aviso: Calcular retenciones ISR sobre Gran Total Reclamable, restando acordemente el periodo/monto libre de gravamen (3 meses / 90 días de salario mínimo), y si el juicio laboral se extiende más allá de los 12 meses, se generan intereses del 2% mensual (capitalizables) sobre el importe de 15 meses de salario (Art. 48). Sujeto a revisión contable y legal.
             </div>
         </div>
     </div>
@@ -561,7 +561,7 @@
         const salarioDev = parseFloat(document.getElementById('salario_dev').value) || 0;
         const diasRetenidos = parseFloat(document.getElementById('dias_retenidos').value) || 0;
         const mesesDev = parseFloat(document.getElementById('meses_dev').value) || 0;
-        const comisiones = parseFloat(document.getElementById('comisiones').value) || 0;
+        const utilidades = parseFloat(document.getElementById('utilidades').value) || 0;
         const bonosDespensa = parseFloat(document.getElementById('bonos_despensa').value) || 0;
         const smg = parseFloat(document.getElementById('salario_minimo').value) || 248.93;
         
@@ -594,7 +594,7 @@
         document.getElementById('base_salario_dev').innerText = mesesDev + ' meses x $' + salarioDev.toFixed(2) + '/mes';
         document.getElementById('val_salario_dev').innerText = '$' + totalSalarioDev.toFixed(2);
 
-        document.getElementById('val_comisiones').innerText = '$' + comisiones.toFixed(2);
+        document.getElementById('val_utilidades').innerText = '$' + utilidades.toFixed(2);
         document.getElementById('val_bonos').innerText = '$' + bonosDespensa.toFixed(2);
 
         const totalAguinaldo = (tiempo.diasAnoEnCurso / 365) * 15 * sdoPrincipal;
@@ -609,7 +609,7 @@
         const totalPrimaVac = totalVacaciones * 0.25;
         document.getElementById('val_prima_vac').innerText = '$' + totalPrimaVac.toFixed(2);
 
-        const subtotalFiniquito = totalSalarioRet + totalSalarioDev + comisiones + bonosDespensa + totalAguinaldo + totalVacaciones + totalPrimaVac;
+        const subtotalFiniquito = totalSalarioRet + totalSalarioDev + utilidades + bonosDespensa + totalAguinaldo + totalVacaciones + totalPrimaVac;
         document.getElementById('val_sub_finiquito').innerText = '$' + subtotalFiniquito.toFixed(2);
 
         // Indemnizaciones
