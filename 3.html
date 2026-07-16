@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONCORD LENDER - Dictamen Jurídico y Financiero</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --concord-crimson: #9e0b0f;
+            --concord-orange: #d95c14;
+            --concord-bg: #050505;
+            --concord-panel: #111111;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent-cyan: #00ffcc;
+        }
+
+        body {
+            background-color: var(--concord-bg);
+            color: var(--text-main);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+
+        .header-main {
+            grid-column: 1 / -1;
+            border-bottom: 2px solid var(--concord-crimson);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-main h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--concord-crimson);
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .header-main span {
+            color: var(--concord-orange);
+            font-size: 12px;
+        }
+
+        .panel {
+            background-color: var(--concord-panel);
+            border: 1px solid #333;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--concord-orange);
+            font-size: 16px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        p, li {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        /* Calculator Styles */
+        .calc-display {
+            background: #000;
+            text-align: right;
+            padding: 15px;
+            border-bottom: 1px solid var(--concord-crimson);
+            margin-bottom: 15px;
+        }
+
+        .calc-display .label { font-size: 10px; color: var(--concord-orange); text-align: left; margin-bottom: 5px; }
+        .calc-display .mxn { font-size: 22px; font-weight: bold; margin-bottom: 5px; color: #fff; }
+        .calc-display .usd { font-size: 22px; font-weight: bold; color: var(--accent-cyan); }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { font-size: 10px; color: var(--concord-orange); display: block; margin-bottom: 5px; }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            background: #0a0a0a;
+            color: white;
+            border: 1px solid #333;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .form-group input:focus { border-color: var(--concord-orange); }
+
+        button {
+            width: 100%;
+            background: var(--concord-crimson);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: 0.2s;
+        }
+        button:hover { background: #c21015; }
+
+        .addendum-box {
+            background: rgba(217, 92, 20, 0.05);
+            border-left: 3px solid var(--concord-orange);
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .addendum-box p { color: #d0d0d0; font-style: italic; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    
+    <!-- HEADER -->
+    <div class="header-main">
+        <h1>CONCORD LENDER // AUDIT SYS</h1>
+        <span id="datetime">INICIALIZANDO...</span>
+    </div>
+
+    <!-- DICTAMEN JURÍDICO -->
+    <div class="panel" style="grid-column: 1;">
+        <h2>I. DICTAMEN JURÍDICO: TIPIFICACIÓN DE DELITOS</h2>
+        
+        <h3>1. Fraude Financiero y Prácticas Predatorias</h3>
+        <p><strong>Entidades Involucradas:</strong> Freedom Forever Solar, Mosaic, Solar Servicing.</p>
+        <ul>
+            <li>Retención indebida de fondos y "jineteo" de dinero.</li>
+            <li>Manipulación de convenios de pago resultando en daño comprobable al historial crediticio de clientes estadounidenses.</li>
+            <li><strong>Implicación Legal:</strong> Cargos por fraude corporativo y bancario a nivel federal. Obligación solidaria de la mesa directiva para la reparación del daño patrimonial.</li>
+        </ul>
+
+        <h3>2. Fraude Laboral y Defraudación Fiscal (IMSS/SAT)</h3>
+        <p><strong>Partes Señaladas:</strong> Mesa Directiva (Sr. Riba), Depto. de Recursos Humanos, Gerencia Operativa.</p>
+        <ul>
+            <li>Esquema sistemático de alta rotación (despidos injustificados a los 2 meses).</li>
+            <li>Retención y evasión de pago de comisiones devengadas.</li>
+            <li>Evasión de cuotas obrero-patronales y obligaciones fiscales.</li>
+            <li><strong>Implicación Legal:</strong> Delito grave de defraudación fiscal y fraude laboral. Penas corporales sin derecho a fianza por daño al erario público, multas superiores al 100% de los montos evadidos y liquidación forzosa.</li>
+        </ul>
+
+        <h3>3. Plagio y Apropiación de Propiedad Intelectual</h3>
+        <ul>
+            <li>Uso no autorizado de la herramienta <strong>CONCORD LENDER INTERNAL TOOL</strong>.</li>
+            <li>Explotación sin licencia de software que genera un ahorro operativo comprobable de 3 horas por cada 9 horas de jornada por agente.</li>
+            <li><strong>Implicación Legal:</strong> Violación a la Ley Federal del Derecho de Autor. Reclamación retroactiva de regalías, indemnización por enriquecimiento ilícito y restitución por el ahorro operativo.</li>
+        </ul>
+
+        <div class="addendum-box">
+            <h2>II. ADDENDUM VERBAL (DECLARACIÓN DE POSTURA)</h2>
+            <p>
+                "A quien corresponda (Autoridades, Representación Legal, Mesa Directiva):<br><br>
+                El presente documento y sus cálculos integrados exponen un esquema sistemático de fraude corporativo, laboral y fiscal. Mi participación se limita a la creación y titularidad de la propiedad intelectual del software aquí presentado, del cual no he cedido derechos. Al tomar conocimiento de las prácticas predatorias contra clientes de Mosaic y Freedom Forever, así como la evasión sistémica ante el SAT y el IMSS orquestada bajo las directrices del Sr. Riba y Recursos Humanos, me deslindo de toda responsabilidad operativa.<br><br>
+                Exijo la restitución inmediata por la explotación de mi propiedad intelectual, el pago íntegro de las comisiones retenidas bajo su esquema de rotación fraudulenta, y advierto que esta evidencia se encuentra documentada y lista para ser integrada en las carpetas de investigación correspondientes por fraude bancario y defraudación fiscal."
+            </p>
+        </div>
+    </div>
+
+    <!-- CALCULADORA FINANCIERA -->
+    <div class="panel" style="grid-column: 2;">
+        <h2>III. CÁLCULO DE CONTINGENCIA</h2>
+        
+        <div class="calc-display" id="calc-display">
+            <div class="label">DEUDA Y DAÑO TOTAL EXIGIBLE:</div>
+            <div class="mxn">MXN $<span id="calc-res-mxn">0.00</span></div>
+            <div class="usd">USD $<span id="calc-res-usd">0.00</span></div>
+        </div>
+
+        <div class="form-group">
+            <label>TIPO DE CAMBIO (MXN/USD):</label>
+            <input type="number" id="dyn-exchange-rate" value="18.50" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label>HORAS DE IP AHORRADAS (TOTAL):</label>
+            <input type="number" id="ip-hours-saved" placeholder="Ej. 600 (Agentes * Horas)">
+        </div>
+        
+        <div class="form-group">
+            <label>TARIFA POR HORA DEV (MXN):</label>
+            <input type="number" id="dev-hourly-rate" value="850">
+        </div>
+
+        <div class="form-group">
+            <label>DAÑO POR ROTACIÓN/IMSS (MXN):</label>
+            <input type="number" id="fraud-imss-mxn" placeholder="Monto evadido estimado">
+        </div>
+
+        <div class="form-group">
+            <label>COMISIONES RETENIDAS (MXN):</label>
+            <input type="number" id="unpaid-commissions" placeholder="Ingresos convenidos adeudados">
+        </div>
+        
+        <button onclick="executeMaxLiquidation()">COMPUTAR EXIGENCIA LEGAL</button>
+    </div>
+
+</div>
+
+<script>
+    // Set current date/time
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('datetime').innerText = now.toLocaleString('es-MX');
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Computation Logic
+    function executeMaxLiquidation() {
+        // Retrieve values
+        const exchangeRate = parseFloat(document.getElementById('dyn-exchange-rate').value) || 1;
+        const hoursSaved = parseFloat(document.getElementById('ip-hours-saved').value) || 0;
+        const devHourlyRate = parseFloat(document.getElementById('dev-hourly-rate').value) || 0;
+        const imssFraud = parseFloat(document.getElementById('fraud-imss-mxn').value) || 0;
+        const unpaidCommissions = parseFloat(document.getElementById('unpaid-commissions').value) || 0;
+        
+        // Calculate IP Damage
+        const ipDamageMxn = hoursSaved * devHourlyRate;
+        
+        // Total Debt
+        const totalDebtMxn = ipDamageMxn + imssFraud + unpaidCommissions;
+        const totalDebtUsd = totalDebtMxn / exchangeRate;
+
+        // Update UI
+        document.getElementById('calc-res-mxn').innerText = totalDebtMxn.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('calc-res-usd').innerText = totalDebtUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        
+        // Visual Alert Effect
+        const calcDisplay = document.getElementById('calc-display');
+        calcDisplay.style.backgroundColor = 'rgba(158, 11, 15, 0.5)';
+        setTimeout(() => { calcDisplay.style.backgroundColor = '#000'; }, 300);
+    }
+</script>
+
+</body>
+</html>

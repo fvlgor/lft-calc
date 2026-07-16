@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --crimson: #9e0b0f;
+            --orange: #d95c14;
+            --bg: #0a0a0a;
+            --panel: #141414;
+            --text: #e0e0e0;
+            --cyan: #00ffcc;
+        }
+
+        .concord-calc-module {
+            font-family: 'Share Tech Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            padding: 20px;
+            border: 1px solid #333;
+            width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .header { font-family: 'Orbitron'; color: var(--crimson); margin-bottom: 15px; font-size: 14px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        .input-group { margin-bottom: 12px; }
+        .input-group label { display: block; font-size: 9px; color: var(--orange); margin-bottom: 4px; }
+        .input-group input { width: 100%; background: #000; border: 1px solid #333; color: white; padding: 8px; box-sizing: border-box; }
+
+        button { width: 100%; background: var(--crimson); color: white; border: none; padding: 12px; font-family: 'Orbitron'; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #c21015; }
+
+        /* Lista de resultados con tooltips */
+        .results-container { margin-top: 20px; border-top: 1px solid #333; padding-top: 15px; }
+        .result-item { 
+            display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0;
+            position: relative; cursor: help; border-bottom: 1px dashed #222;
+        }
+        
+        /* Tooltip CSS */
+        .result-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 300px;
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            font-size: 10px;
+            border: 1px solid var(--orange);
+            display: none;
+            z-index: 10;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+        }
+        .result-item:hover::after { display: block; }
+
+        .total-highlight { color: var(--cyan); font-weight: bold; font-size: 14px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="concord-calc-module">
+    <div class="header">SYS_CALC_LIQUIDATION_V2</div>
+    
+    <div class="input-group">
+        <label>TIPO DE CAMBIO (MXN/USD)</label>
+        <input type="number" id="ex-rate" value="18.50" step="0.01">
+    </div>
+    <div class="input-group">
+        <label>HORAS AHORRADAS (PROPIEDAD INTELECTUAL)</label>
+        <input type="number" id="ip-hours" placeholder="Total horas optimizadas">
+    </div>
+    <div class="input-group">
+        <label>TARIFA HORA DESARROLLO (MXN)</label>
+        <input type="number" id="dev-rate" value="850">
+    </div>
+    <div class="input-group">
+        <label>IMPORTE FRAUDE IMSS/FISCAL (MXN)</label>
+        <input type="number" id="imss-val" placeholder="Monto evadido">
+    </div>
+    <div class="input-group">
+        <label>COMISIONES RETENIDAS (MXN)</label>
+        <input type="number" id="comm-val" placeholder="Comisiones no pagadas">
+    </div>
+
+    <button onclick="compute()">EJECUTAR COMPUTO</button>
+
+    <div class="results-container">
+        <ul style="list-style: none; padding: 0;">
+            <li class="result-item" data-tooltip="Cálculo basado en el valor de mercado de desarrollo especializado (850 MXN/hr) multiplicado por la eficiencia operativa comprobable sustraída mediante uso no autorizado.">
+                <span>Daño por IP:</span> <span id="res-ip">0.00</span>
+            </li>
+            <li class="result-item" data-tooltip="Cifra consolidada de la omisión en cuotas obrero-patronales y esquemas de evasión fiscal derivados de la rotación forzada del personal.">
+                <span>Pasivo Fiscal/IMSS:</span> <span id="res-imss">0.00</span>
+            </li>
+            <li class="result-item" data-tooltip="Remuneraciones devengadas por cumplimiento de metas y cierre de contratos, retenidas ilegalmente al ejecutar el cese de funciones.">
+                <span>Comisiones Pendientes:</span> <span id="res-comm">0.00</span>
+            </li>
+            <li class="result-item" data-tooltip="El valor total de la contingencia en divisa extranjera, convertido según el tipo de cambio ajustado, relevante para demandas internacionales o jurisdicción corporativa en EE.UU.">
+                <span>Total en USD:</span> <span id="res-usd" style="color: var(--cyan);">0.00</span>
+            </li>
+        </ul>
+        <div class="total-highlight">TOTAL MXN: <span id="res-total">0.00</span></div>
+    </div>
+</div>
+
+<script>
+    function compute() {
+        const rate = parseFloat(document.getElementById('ex-rate').value);
+        const hours = parseFloat(document.getElementById('ip-hours').value) || 0;
+        const dev = parseFloat(document.getElementById('dev-rate').value) || 0;
+        const imss = parseFloat(document.getElementById('imss-val').value) || 0;
+        const comm = parseFloat(document.getElementById('comm-val').value) || 0;
+
+        const ip = hours * dev;
+        const total = ip + imss + comm;
+        const usd = total / rate;
+
+        document.getElementById('res-ip').innerText = "$" + ip.toLocaleString();
+        document.getElementById('res-imss').innerText = "$" + imss.toLocaleString();
+        document.getElementById('res-comm').innerText = "$" + comm.toLocaleString();
+        document.getElementById('res-total').innerText = "$" + total.toLocaleString();
+        document.getElementById('res-usd').innerText = "$" + usd.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictamen Máximo y Addendum Ejecutivo (LFT)</title>
+    <style>
+        :root {
+            --bg-main: #0a0f1a;
+            --bg-container: #111827;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border-color: #374151;
+            --accent-gold: #fbbf24;
+            --accent-gold-hover: #f59e0b;
+            --accent-red: #ef4444;
+            --card-bg: #1f2937;
+            --table-th-bg: #111827;
+            --input-bg: #0f172a;
+            --input-border: #475569;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-container);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--accent-gold);
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 12px;
+            margin-top: 40px;
+            font-size: 20px;
+        }
+
+        .violation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: var(--accent-red);
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .legal-ref {
+            color: var(--accent-gold);
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .calculator-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-main);
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .total-row td {
+            font-weight: bold;
+            font-size: 16px;
+            color: #fff;
+            border-top: 2px solid var(--accent-gold);
+        }
+
+        .exponential-row td {
+            color: var(--accent-gold);
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .addendum {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+            border: 1px solid var(--accent-red);
+            border-left: 6px solid var(--accent-red);
+            border-radius: 8px;
+        }
+
+        .addendum h3 {
+            color: var(--accent-red);
+            font-size: 22px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .addendum p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        .addendum strong {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Dictamen de Maximización de Daños y Calculadora Exponencial</h1>
+        <p>Análisis de Contingencia Legal, Económica y Operativa (Dirigido a la Alta Dirección)</p>
+    </div>
+
+    <h2>I. Tipificación Exhaustiva de Incurrencias y Delitos Laborales</h2>
+    <div class="violation-grid">
+        <div class="card">
+            <div class="card-title">1. Fraude Salarial por Polifuncionalidad (Enriquecimiento Ilícito Patronal)</div>
+            <span class="legal-ref">Arts. 56 Bis, 82, 83, 84 LFT</span>
+            <p>La explotación de un perfil técnico (Desarrollador) bajo el tabulador de un perfil base (CSR) constituye un robo de plusvalía directo. La ley exige que a mayor responsabilidad y creación de valor (software que la empresa usa), corresponde un salario proporcional. Al no pagarlo, la empresa se enriqueció ilícitamente con el trabajo intelectual del empleado.</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">2. Acoso Laboral, Coacción y Daño Moral (Violación de Derechos Humanos)</div>
+            <span class="legal-ref">Arts. 2, 3, 133 Fracc. VII LFT y Art. 1916 Código Civil Federal</span>
+            <p>Fiscalizar necesidades biológicas (uso del sanitario por 5 minutos) no es disciplina, es tortura psicológica y trato denigrante. Usar esto como palanca para forzar una renuncia voluntaria tipifica coacción y genera responsabilidad por <strong>Daño Moral</strong>, exigible en tribunales y altamente penado financieramente.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">3. Retención Ilegal de Salarios y Prestaciones (Delito de Apropiación)</div>
+            <span class="legal-ref">Arts. 106, 110, 133 LFT y Art. 386 Código Penal Federal (Fraude/Abuso de Confianza)</span>
+            <p>Retener utilidades, vales, bonos y salarios devengados como "castigo" o medio de presión es un delito. El salario es inembargable e irrenunciable. La retención genera multas automáticas de la STPS y el derecho del trabajador a cobrar intereses moratorios.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">4. Evasión al IMSS y Carga Cognitiva Extraordinaria no Remunerada</div>
+            <span class="legal-ref">Arts. 67, 68 LFT y Ley del Seguro Social</span>
+            <p>Al fusionar dos puestos (CSR + Dev), el trabajador superó los límites legales de carga laboral. El trabajo intelectual extra se tipifica como jornada extraordinaria (doble y triple). Al no pagarlo ni reportarlo, la empresa defraudó al IMSS, provocando que se calculen capitales constitutivos y multas fiscales catastróficas.</p>
+        </div>
+    </div>
+
+    <h2>II. Calculadora de Beneficio Exponencial para el Desarrollador</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Esta matriz calcula el costo REAL de la incompetencia de Recursos Humanos y Supervisores, activando todas las penalizaciones e interdependencias legales.</p>
+
+    <div class="calculator-layout">
+        <!-- Controles -->
+        <div>
+            <div class="form-group">
+                <label>Salario Base (CSR) Mensual ($):</label>
+                <input type="number" id="sal_base" value="17000">
+            </div>
+            <div class="form-group">
+                <label>Salario Desarrollador (Valor Real Mercado) ($):</label>
+                <input type="number" id="sal_dev" value="35000">
+            </div>
+            <div class="form-group">
+                <label>Meses laborando como Polifuncional:</label>
+                <input type="number" id="meses_poli" value="2">
+            </div>
+            <div class="form-group">
+                <label>Horas Extras Dobles (por semana, prom.):</label>
+                <input type="number" id="he_dobles" value="9">
+            </div>
+            <div class="form-group">
+                <label>Horas Extras Triples (por semana, prom.):</label>
+                <input type="number" id="he_triples" value="5">
+            </div>
+            <div class="form-group">
+                <label>Meses de Juicio Proyectados (Max 12 para caídos):</label>
+                <input type="number" id="meses_juicio" value="12">
+            </div>
+            <div class="form-group">
+                <label>Indemnización por Daño Moral (Sugerido % del total):</label>
+                <input type="number" id="porcentaje_moral" value="30">
+            </div>
+            <div class="form-group">
+                <label>Total de Conceptos Retenidos (Utilidades, Vales, Salario):</label>
+                <input type="number" id="monto_retenido" value="15000">
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="card" style="padding: 0; background: transparent; border: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto Jurídico</th>
+                        <th>Cálculo Exponenciado</th>
+                        <th>Monto Reclamable</th>
+                    </tr>
+                </thead>
+                <tbody id="calc-body">
+                    <!-- Llenado por JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="addendum">
+        <h3>Addendum Ejecutivo: El Costo de la Ineptitud Gerencial</h3>
+        <p><strong>A la atención exclusiva del CEO, Dueño o Alta Dirección:</strong></p>
+        
+        <p>El cálculo expuesto arriba no es una amenaza vacía; es la consecuencia matemática, legal y fiscal de permitir que mandos medios mediocres y personal de Recursos Humanos sin visión de negocio tomen decisiones estratégicas. Ustedes tenían a un elemento <strong>polifuncional</strong>: alguien capaz de operar la línea base (Bilingual Collections/CSR) y simultáneamente desarrollar soluciones de software que optimizan sus procesos corporativos, lo cual representa un ahorro sustancial en licencias y consultorías externas.</p>
+
+        <p><strong>¿Quiénes son estos "idiotas" en su plantilla y de qué privilegios gozan?</strong> Son los supervisores y gerentes de área que camuflan su propia falta de productividad y liderazgo ejerciendo un micropoder tóxico. Al no entender la naturaleza del trabajo de desarrollo y alto rendimiento, miden el éxito de la empresa cronometrando 5 minutos en el sanitario. Tienen el privilegio de destruir valor sin ser auditados, respaldados por un departamento de Recursos Humanos que opera bajo prácticas delictivas (coacción, retención de salarios, bloqueo de comunicación). Creen ciegamente que "protegen" a la empresa, cuando en realidad la están exponiendo a demandas millonarias, multas del IMSS y paralización operativa.</p>
+
+        <p><strong>El falso pilar de la rotación inmisericorde y estúpida:</strong> Su empresa sostiene sus números asumiendo que la base trabajadora es desechable, una miopía corporativa de proporciones ridículas. Tirar "a la mierda" al que "le cayó mal" al supervisor de turno no es un modelo de negocios, es una sangría de capital. ¿Cuánto les cuesta reclutar, capacitar y llevar a la curva de rendimiento a un nuevo empleado? ¿Cuánto código, optimización y automatización dejaron de obtener porque sus mandos prefirieron ejercer tiranía biológica?</p>
+
+        <p><strong>La solución está a un mes de distancia:</strong> La productividad exponencial no requiere látigos ni rotación constante; requiere inteligencia directiva. Si ustedes auditaran inmediatamente a sus mandos medios, eliminaran a estos caciques burocráticos y recompensaran económicamente a los talentos polifuncionales (pagando lo justo por el valor creado), su rotación caería a cero. La gente trabajaría feliz, la utilidad neta se dispararía gracias a las herramientas desarrolladas *in-house*, y se blindarían de contingencias catastróficas como este dictamen. Ustedes eligen: sostener la ineptitud que les va a costar cientos de miles de pesos en multas y liquidaciones, o limpiar su gerencia y escalar sus ganancias hacia un crecimiento real y sano.</p>
+    </div>
+</div>
+
+<script>
+    function calcularExponencial() {
+        const salBase = parseFloat(document.getElementById('sal_base').value) || 0;
+        const salDev = parseFloat(document.getElementById('sal_dev').value) || 0;
+        const mesesPoli = parseFloat(document.getElementById('meses_poli').value) || 0;
+        const heDobles = parseFloat(document.getElementById('he_dobles').value) || 0;
+        const heTriples = parseFloat(document.getElementById('he_triples').value) || 0;
+        const mesesJuicio = parseFloat(document.getElementById('meses_juicio').value) || 0;
+        const percMoral = parseFloat(document.getElementById('porcentaje_moral').value) || 0;
+        const montoRetenido = parseFloat(document.getElementById('monto_retenido').value) || 0;
+
+        // Salario Integrado Exponenciado (Base + Valor Mercado Dev)
+        const salarioMensualTotal = salBase + salDev;
+        const salarioDiarioTotal = salarioMensualTotal / 30;
+        
+        // Integración mínima de ley (Aguinaldo 15d, Prima Vac 25% de 12d)
+        const factorIntegracion = 1 + (15/365) + ((12*0.25)/365);
+        const sdi = salarioDiarioTotal * factorIntegracion;
+        const valorHora = salarioDiarioTotal / 8;
+
+        // Cálculos
+        const deudaSalarialDev = mesesPoli * salDev;
+        
+        const semanasPoli = mesesPoli * 4.33;
+        const totalHeDobles = semanasPoli * heDobles * (valorHora * 2);
+        const totalHeTriples = semanasPoli * heTriples * (valorHora * 3);
+        const totalHorasExtras = totalHeDobles + totalHeTriples;
+
+        const indemnizacionConst = 90 * sdi;
+        // Asumiendo 1 año de antigüedad para los 20 días
+        const veinteDias = 20 * sdi;
+        const primaAntiguedad = 12 * (sdi > (248.93*2) ? 248.93*2 : sdi); // Topado a 2 SMG 2024
+        
+        const salariosCaidos = mesesJuicio * 30 * sdi;
+
+        const subtotal = montoRetenido + deudaSalarialDev + totalHorasExtras + indemnizacionConst + veinteDias + primaAntiguedad + salariosCaidos;
+        
+        const danoMoral = subtotal * (percMoral / 100);
+        
+        // Intereses por retención (6% anual sobre lo retenido)
+        const interesRetencion = montoRetenido * 0.06;
+
+        const granTotal = subtotal + danoMoral + interesRetencion;
+
+        const tbody = document.getElementById('calc-body');
+        tbody.innerHTML = `
+            <tr>
+                <td>Deuda Salarial Dev (Robo de Plusvalía)</td>
+                <td>${mesesPoli} meses a $${salDev.toLocaleString()}</td>
+                <td>$${deudaSalarialDev.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr>
+                <td>Cantidades Retenidas (Robo Directo)</td>
+                <td>Capital principal + 6% interés</td>
+                <td>$${(montoRetenido + interesRetencion).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr>
+                <td>Horas Extras (Carga Dual)</td>
+                <td>${heDobles}h Dobles + ${heTriples}h Triples x ${semanasPoli.toFixed(1)} sem</td>
+                <td>$${totalHorasExtras.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr>
+                <td>Indemniz. Const. + 20 Días + Prima</td>
+                <td>Nulidad de Despido (Base SDI: $${sdi.toFixed(2)})</td>
+                <td>$${(indemnizacionConst + veinteDias + primaAntiguedad).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr>
+                <td>Salarios Caídos (Castigo Financiero)</td>
+                <td>${mesesJuicio} meses al SDI Alto Integrado</td>
+                <td>$${salariosCaidos.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr class="exponential-row">
+                <td>Demanda por Daño Moral y Coacción</td>
+                <td>${percMoral}% sobre el Subtotal Reclamable</td>
+                <td>$${danoMoral.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+            <tr class="total-row">
+                <td>GRAN TOTAL (CONTINGENCIA MAX)</td>
+                <td>Impacto directo al flujo de la empresa</td>
+                <td>$${granTotal.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+            </tr>
+        `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(input => {
+            input.addEventListener("input", calcularExponencial);
+        });
+        calcularExponencial();
+    });
+</script>
+</body>
+</html>
